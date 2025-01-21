@@ -1,14 +1,17 @@
 import imgsDb from "../database/imgsDb.js";
 
-function showImages(result) {
-  imgsDb.map((e, i) => {
+function renderImages() {
+  imgsDb.forEach((e, i) => {
+
     let imgContainer = document.createElement("div");
+    
     imgContainer.classList.add("img-container");
 
     let rndNumber = getRandomInt(-5, 5);
-    let img = document.createElement("img");
-    img.className = "gallery-img";
 
+    let img = document.createElement("img");
+        
+    img.className = "gallery-img";
     img.id = i;
     img.src = e.src;
     img.alt = e.alt;
@@ -29,4 +32,4 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
 
-export default showImages;
+export default renderImages;
